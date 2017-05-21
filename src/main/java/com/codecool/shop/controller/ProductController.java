@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
 public class ProductController {
 
     public static ModelAndView renderProducts(Request req, Response res) {
@@ -55,7 +57,12 @@ public class ProductController {
         return new ModelAndView(params, "product/index");
     }
 
-
+    /**
+     *
+     * @param req
+     * @param res
+     * @return
+     */
     public static ModelAndView renderShoppingCarts(Request req, Response res) {
         ProductDaoJdbc productDataStore = new ProductDaoJdbc();
         String id = req.params(":id");

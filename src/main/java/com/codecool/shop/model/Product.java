@@ -2,6 +2,12 @@ package com.codecool.shop.model;
 
 import java.util.Currency;
 
+/**
+ *
+ * <p>
+ *
+ */
+
 public class Product extends BaseModel {
 
     private float defaultPrice;
@@ -9,13 +15,26 @@ public class Product extends BaseModel {
     private ProductCategory productCategory;
     private Supplier supplier;
 
-
+    /**
+     *
+     * @param id
+     * @param name
+     * @param defaultPrice
+     * @param currencyString
+     * @param description
+     * @param productCategory
+     * @param supplier
+     */
     public Product(int id, String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
         super(id, name, description);
         this.setPrice(defaultPrice, currencyString);
         this.setSupplier(supplier);
         this.setProductCategory(productCategory);
     }
+
+    /**
+     * @return default Price of the product
+     */
 
     public float getDefaultPrice() {
         return defaultPrice;
@@ -24,6 +43,11 @@ public class Product extends BaseModel {
     public void setDefaultPrice(float defaultPrice) {
         this.defaultPrice = defaultPrice;
     }
+
+    /**
+     *
+     * @return default currency of the product
+     */
 
     public Currency getDefaultCurrency() {
         return defaultCurrency;
@@ -42,15 +66,29 @@ public class Product extends BaseModel {
         this.defaultCurrency = Currency.getInstance(currency);
     }
 
+    /**
+     *
+     * @return the category of the product
+     */
+
     public ProductCategory getProductCategory() {
         return productCategory;
     }
+
+    /**
+     *
+     * @param productCategory
+     */
 
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
         this.productCategory.addProduct(this);
     }
 
+    /**
+     *
+     * @return supplier of the product
+     */
     public Supplier getSupplier() {
         return supplier;
     }

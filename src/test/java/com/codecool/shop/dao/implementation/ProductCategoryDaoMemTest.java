@@ -21,9 +21,9 @@ class ProductCategoryDaoMemTest {
     @Test
     public void testSameCategoryNameCannotAdd() {
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductCategory tablet1 = new ProductCategory(1,"Tablet", "Hardware", "A tablet computer.");
+        ProductCategory tablet1 = new ProductCategory(10,"Tablet", "Hardware", "A tablet computer.");
         productCategoryDataStore.add(tablet1);
-        ProductCategory tablet2 = new ProductCategory(1,"Tablet", "Hardware", "A tablet computer.");
+        ProductCategory tablet2 = new ProductCategory(10,"Tablet", "Hardware", "A tablet computer.");
         productCategoryDataStore.add(tablet2);
         int size = productCategoryDataStore.getAll().size();
         Assertions.assertEquals(1, size);

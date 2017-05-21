@@ -5,6 +5,11 @@ import java.util.List;
 
 /**
  * Created by gabor on 2017.04.28..
+ * <p>
+ * Create Shopping Cart
+ * If 'Add to Cart' is clicked , it's create a LineItem only if it does not extists.
+ * If so it's increase it's quantity
+ *
  */
 public class ShopCart {
 
@@ -14,6 +19,10 @@ public class ShopCart {
     private static ShopCart instance;
     float totalPrice = 0;
 
+    /**
+     *
+     * @param product add to Shopping Cart only if it's does not exist, if so, it's increase it's quantity.
+     */
 
     public void addShoppingCart(Product product) {
         boolean notFound = true;
@@ -33,6 +42,10 @@ public class ShopCart {
         return shoppingCart.get(id);
     }
 
+    /**
+     *
+     * @return the only one shopping cart
+     */
     public static ShopCart getInstance() {
         if (instance == null) {
             instance = new ShopCart();
@@ -40,6 +53,10 @@ public class ShopCart {
         return instance;
     }
 
+    /**
+     *
+     * @return line items in shopping cart
+     */
     public List<LineItem> getAllCarts() {
         return shoppingCart;
     }
