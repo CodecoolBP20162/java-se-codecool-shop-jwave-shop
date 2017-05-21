@@ -3,6 +3,8 @@ import com.codecool.shop.dao.implementation.ProductCategoryDaoJdbc;
 import com.codecool.shop.dao.implementation.ProductDaoJdbc;
 import com.codecool.shop.dao.implementation.SupplierDaoJdbc;
 import com.codecool.shop.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -13,6 +15,9 @@ import java.util.Map;
 
 public class ProductController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+
+
     public static ModelAndView renderProducts(Request req, Response res) {
 //        ProductDao productDataStore = ProductDaoMem.getInstance();
 //        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
@@ -22,6 +27,8 @@ public class ProductController {
         SupplierDaoJdbc supplierDataStore = new SupplierDaoJdbc();
         ShopCart cart = ShopCart.getInstance();
         List<LineItem> cartProducts = cart.getAllCarts();
+        logger.info("show shopping Cart");
+
 
 
 

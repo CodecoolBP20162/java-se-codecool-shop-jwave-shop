@@ -7,6 +7,8 @@ import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
 import com.codecool.shop.model.UI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,7 +22,14 @@ import static spark.debug.DebugScreen.enableDebugScreen;
 
 public class Main {
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
+
     public static void main(String[] args) {
+        logger.info("Starting CodecoolShop");
+
+
+
 
         // default server settings
         exception(Exception.class, (e, req, res) -> e.printStackTrace());
@@ -73,6 +82,7 @@ public class Main {
 //        checkout stuff
         get("/checkout", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();
+            logger.info("Checkout window open");
             return new ThymeleafTemplateEngine().render(new ModelAndView(model, "product/checkout"));
         });
 
